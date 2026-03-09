@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chenyu Zhu - Homepage</title>
+  <meta name="description" content="Chenyu Zhu's academic homepage. Undergraduate in Computer Science at City University of Hong Kong.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    :root {
+      --primary-color: #2c6fbb;
+      --text-color: #333;
+      --text-light: #666;
+      --bg-color: #fff;
+      --section-bg: #f9f9f9;
+      --border-color: #e8e8e8;
+      --news-date-color: #888;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Quicksand', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: var(--text-color);
+      background: var(--bg-color);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header / Profile */
+    .profile-section {
+      display: flex;
+      gap: 40px;
+      padding: 50px 0 30px;
+      align-items: flex-start;
+    }
+
+    .profile-photo {
+      flex-shrink: 0;
+    }
+
+    .profile-photo img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--border-color);
+    }
+
+    .profile-photo .placeholder-photo {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-size: 48px;
+      font-weight: 700;
+      border: 3px solid var(--border-color);
+    }
+
+    .profile-info h1 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .profile-info .bio {
+      color: var(--text-light);
+      margin-bottom: 12px;
+      font-size: 14.5px;
+    }
+
+    .profile-links {
+      display: flex;
+      gap: 15px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
+
+    .profile-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 14px;
+      color: var(--text-light);
+      transition: color 0.2s;
+    }
+    .profile-links a:hover {
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    /* Sections */
+    .section {
+      padding: 25px 0;
+      border-top: 1px solid var(--border-color);
+    }
+
+    .section-title {
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .section-title .emoji {
+      font-size: 20px;
+    }
+
+    /* News */
+    .news-list {
+      list-style: none;
+      max-height: 260px;
+      overflow-y: auto;
+      padding-right: 10px;
+    }
+
+    .news-list li {
+      padding: 5px 0;
+      font-size: 14px;
+      display: flex;
+      gap: 10px;
+    }
+
+    .news-date {
+      color: var(--news-date-color);
+      font-style: italic;
+      flex-shrink: 0;
+      min-width: 70px;
+    }
+
+    /* Publications */
+    .pub-item {
+      display: flex;
+      gap: 20px;
+      margin-bottom: 25px;
+      padding-bottom: 25px;
+      border-bottom: 1px solid var(--border-color);
+    }
+    .pub-item:last-child { border-bottom: none; }
+
+    .pub-badge {
+      flex-shrink: 0;
+      width: 60px;
+      text-align: center;
+    }
+
+    .pub-badge span {
+      display: inline-block;
+      background: var(--primary-color);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 3px;
+      white-space: nowrap;
+    }
+
+    .pub-content {
+      flex: 1;
+    }
+
+    .pub-title {
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .pub-authors {
+      font-size: 13.5px;
+      color: var(--text-light);
+      margin-bottom: 6px;
+    }
+
+    .pub-authors .me {
+      font-weight: 700;
+      color: var(--text-color);
+    }
+
+    .pub-desc {
+      font-size: 13px;
+      color: var(--text-light);
+      margin-bottom: 8px;
+    }
+
+    .pub-links {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .pub-links a {
+      font-size: 13px;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 2px 10px;
+      border: 1px solid var(--border-color);
+      border-radius: 3px;
+      color: var(--text-color);
+      transition: all 0.2s;
+    }
+    .pub-links a:hover {
+      border-color: var(--primary-color);
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    /* Research Experience */
+    .exp-item {
+      margin-bottom: 25px;
+    }
+
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .exp-header h3 {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .exp-date {
+      font-size: 13px;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .exp-role {
+      font-size: 14px;
+      color: var(--text-light);
+      margin-bottom: 4px;
+    }
+
+    .exp-supervisor {
+      font-size: 13.5px;
+      color: var(--text-light);
+      margin-bottom: 10px;
+    }
+
+    .exp-project {
+      margin-top: 12px;
+    }
+
+    .exp-project h4 {
+      font-size: 14.5px;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .exp-project ul {
+      padding-left: 20px;
+      font-size: 13.5px;
+      color: var(--text-light);
+    }
+
+    .exp-project ul li {
+      margin-bottom: 4px;
+    }
+
+    /* Education */
+    .edu-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+    }
+
+    .edu-logo {
+      flex-shrink: 0;
+      width: 56px;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .edu-logo img {
+      max-width: 56px;
+      max-height: 56px;
+      object-fit: contain;
+    }
+
+    .edu-info h3 {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .edu-info p {
+      font-size: 13.5px;
+      color: var(--text-light);
+    }
+
+    /* Awards */
+    .award-list {
+      list-style: none;
+    }
+    .award-list li {
+      padding: 4px 0;
+      font-size: 14px;
+      display: flex;
+      gap: 10px;
+    }
+    .award-date {
+      color: var(--news-date-color);
+      font-style: italic;
+      flex-shrink: 0;
+      min-width: 70px;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      font-size: 14px;
+    }
+
+    .skills-grid .skill-group strong {
+      color: var(--text-color);
+    }
+
+    .skills-grid .skill-group span {
+      color: var(--text-light);
+    }
+
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 30px 0;
+      color: var(--news-date-color);
+      font-size: 12px;
+      border-top: 1px solid var(--border-color);
+      margin-top: 20px;
+    }
+
+    /* Scrollbar */
+    .news-list::-webkit-scrollbar { width: 4px; }
+    .news-list::-webkit-scrollbar-track { background: transparent; }
+    .news-list::-webkit-scrollbar-thumb { background: #ccc; border-radius: 2px; }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .profile-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+      .profile-links { justify-content: center; }
+      .pub-item { flex-direction: column; }
+      .pub-badge { width: auto; text-align: left; }
+      .exp-header { flex-direction: column; }
+      .edu-item { flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <!-- Profile -->
+    <div class="profile-section">
+      <div class="profile-photo">
+        <img src="profile.jpg" alt="Chenyu Zhu">
+      </div>
+      <div class="profile-info">
+        <h1>Chenyu Zhu <span style="font-size:18px; font-weight:400; color:#888;">(朱晨宇)</span></h1>
+        <p class="bio">
+          I am an undergraduate student in Computer Science at <a href="https://www.cityu.edu.hk/">City University of Hong Kong</a>,
+          working as a Research Assistant in the <a href="https://www.cs.cityu.edu.hk/">Department of Computer Science</a>,
+          supervised by Prof. <a href="https://scholar.google.com/citations?user=XXXX">Zhichao Lu</a> (Assistant Professor)
+          and Prof. <a href="https://scholar.google.com/citations?user=XXXX">Qingfu Zhang</a> (Chair Professor, IEEE Fellow).
+        </p>
+        <p class="bio">
+          My research interests include <strong>evolutionary computation</strong>, <strong>LLM-based code optimization</strong>,
+          and <strong>neural architecture search</strong>.
+        </p>
+        <p class="bio">
+          Feel free to reach out if you are interested in my work or have any ideas to discuss!
+        </p>
+        <div class="profile-links">
+          <a href="mailto:chenyuzhu9-c@my.cityu.edu.hk"><i class="fas fa-envelope"></i> Email</a>
+          <a href="https://github.com/Zcy233035"><i class="fab fa-github"></i> GitHub</a>
+          <!-- <a href="https://scholar.google.com/citations?user=XXXX"><i class="fas fa-graduation-cap"></i> Google Scholar</a> -->
+          <!-- <a href="files/cv.pdf"><i class="fas fa-file-pdf"></i> CV</a> -->
+        </div>
+      </div>
+    </div>
+
+    <!-- News -->
+    <div class="section">
+      <h2 class="section-title"><span class="emoji">🔥</span> News</h2>
+      <ul class="news-list">
+        <li>
+          <span class="news-date">2025.10:</span>
+          <span>We release <a href="https://arxiv.org/abs/2510.03760">EvoEngineer</a>, a framework for automated CUDA kernel code evolution with LLMs.</span>
+        </li>
+        <li>
+          <span class="news-date">2025.03:</span>
+          <span>Joined the <a href="#">Optima Research Group</a> at CityU as a Research Assistant, working on evolutionary optimization and neural architecture search.</span>
+        </li>
+        <li>
+          <span class="news-date">2024.06:</span>
+          <span>Attended UC Berkeley Summer Session, studying CS 61BL and CS 188.</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Publications -->
+    <div class="section">
+      <h2 class="section-title"><span class="emoji">📝</span> Publications &amp; Manuscripts</h2>
+
+      <div class="pub-item">
+        <div class="pub-badge"><span>arXiv</span></div>
+        <div class="pub-content">
+          <div class="pub-title">EvoEngineer: Mastering Automated CUDA Kernel Code Evolution with Large Language Models</div>
+          <div class="pub-authors">
+            Ping Guo, <span class="me">Chenyu Zhu</span>, Siyuan Chen, Fei Liu, Xi Lin, Zhichao Lu, and Qingfu Zhang.
+          </div>
+          <div class="pub-desc">
+            A framework that uses LLMs to automate the evolutionary optimization of CUDA kernels through iterative search in code space.
+          </div>
+          <div class="pub-links">
+            <a href="https://arxiv.org/abs/2510.03760"><i class="fas fa-file-pdf"></i> Paper</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Research Experience -->
+    <div class="section">
+      <h2 class="section-title"><span class="emoji">🔬</span> Research Experience</h2>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <h3>Optima Research Group, City University of Hong Kong</h3>
+          <span class="exp-date">Mar 2025 -- Present</span>
+        </div>
+        <div class="exp-role">Research Assistant, Department of Computer Science</div>
+        <div class="exp-supervisor">
+          Supervisors: <strong>Zhichao Lu</strong> (Assistant Professor) &amp; <strong>Qingfu Zhang</strong> (Chair Professor, IEEE Fellow)
+        </div>
+
+        <div class="exp-project">
+          <h4>Project 1: EvoEngineer &mdash; Automated Code Evolution for GPU Kernels</h4>
+          <ul>
+            <li>Co-authored <em>EvoEngineer</em> (arXiv:2510.03760), a framework that uses LLMs to automate the evolutionary optimization of CUDA kernels through iterative search in code space.</li>
+            <li>Contributed to the conceptual design of the iterative code evolution pipeline, proposing the search-and-refinement workflow that enables LLMs to progressively optimize CUDA kernel performance across generations.</li>
+            <li>Built the experimental pipeline integrating with KernelBench, covering automated compilation, correctness verification, and GPU profiling across a suite of real-world deep learning kernels.</li>
+          </ul>
+        </div>
+
+        <div class="exp-project">
+          <h4>Project 2 (Ongoing): Training-Free Surrogate Model for Spiking Neural Architecture Search</h4>
+          <ul>
+            <li>Developed a multi-level feature extraction framework for SNN architectures, combining zero-cost proxies, code-level component statistics, structural shape-trace features, and a novel SNN-specific firing-rate metric, all extracted without any training.</li>
+            <li>Deployed a tabular foundation model (TabPFN) as the surrogate regressor, outperforming traditional ML baselines on two NLP benchmarks under the same cross-validation protocol.</li>
+            <li>Designed an online learning loop where the surrogate continuously improves as the NAS process accumulates labeled architectures, significantly reducing the cost of architecture evaluation.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="section">
+      <h2 class="section-title"><span class="emoji">📖</span> Education</h2>
+
+      <div class="edu-item">
+        <div class="edu-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/en/thumb/b/b4/CityU_logo.svg/1200px-CityU_logo.svg.png" alt="CityU">
+        </div>
+        <div class="edu-info">
+          <h3>City University of Hong Kong</h3>
+          <p>B.Sc. in Computer Science, Aug 2023 &ndash; Jun 2027 (Expected)</p>
+          <p>CGPA: 3.80 / 4.30 &nbsp;|&nbsp; Dean's List (2023/24 Sem A, 2024/25 Sem A, 2025/26 Sem A)</p>
+        </div>
+      </div>
+
+      <div class="edu-item">
+        <div class="edu-logo">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Seal_of_University_of_California%2C_Berkeley.svg/1200px-Seal_of_University_of_California%2C_Berkeley.svg.png" alt="UC Berkeley">
+        </div>
+        <div class="edu-info">
+          <h3>University of California, Berkeley</h3>
+          <p>Summer Session, Jun 2024 &ndash; Aug 2024</p>
+          <p>GPA: 3.50 / 4.00 &nbsp;|&nbsp; CS 61BL, CS 188 (4.0/4.0)</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Honors & Awards -->
+    <div class="section">
+      <h2 class="section-title"><span class="emoji">🎖</span> Honors &amp; Awards</h2>
+      <ul class="award-list">
+        <li>
+          <span class="award-date">2023 &ndash; 2025</span>
+          <span>College of Engineering, <strong>Dean's List</strong> (2023/24 Sem A; 2024/25 Sem A, TGPA 4.00; 2025/26 Sem A), <em>City University of Hong Kong</em></span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="section">
+      <h2 class="section-title"><span class="emoji">💻</span> Technical Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <strong>Languages:</strong> <span>Python, C/C++, CUDA, Java, SQL</span>
+        </div>
+        <div class="skill-group">
+          <strong>Frameworks:</strong> <span>PyTorch, Hugging Face, scikit-learn</span>
+        </div>
+        <div class="skill-group">
+          <strong>Tools:</strong> <span>Git, Linux, LaTeX</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>&copy; 2025 Chenyu Zhu. Powered by pure HTML/CSS.</p>
+      <p style="margin-top:4px;">Last updated: Mar 2026</p>
+    </div>
+
+  </div>
+</body>
+</html>
