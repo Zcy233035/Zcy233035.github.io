@@ -62,20 +62,6 @@
       border: 3px solid var(--border-color);
     }
 
-    .profile-photo .placeholder-photo {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: #fff;
-      font-size: 48px;
-      font-weight: 700;
-      border: 3px solid var(--border-color);
-    }
-
     .profile-info h1 {
       font-size: 28px;
       font-weight: 700;
@@ -282,6 +268,47 @@
       margin-bottom: 4px;
     }
 
+    /* Projects */
+    .proj-item {
+      margin-bottom: 20px;
+    }
+
+    .proj-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+
+    .proj-header h3 {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .proj-header h3 .tech {
+      font-weight: 400;
+      color: var(--text-light);
+      font-size: 13.5px;
+    }
+
+    .proj-date {
+      font-size: 13px;
+      color: var(--text-light);
+      font-style: italic;
+    }
+
+    .proj-item ul {
+      padding-left: 20px;
+      font-size: 13.5px;
+      color: var(--text-light);
+      margin-top: 6px;
+    }
+
+    .proj-item ul li {
+      margin-bottom: 4px;
+    }
+
     /* Education */
     .edu-item {
       display: flex;
@@ -395,8 +422,8 @@
           and Prof. <a href="https://scholar.google.com/citations?user=XXXX">Qingfu Zhang</a> (Chair Professor, IEEE Fellow).
         </p>
         <p class="bio">
-          My research interests include <strong>evolutionary computation</strong>, <strong>LLM-based code optimization</strong>,
-          and <strong>neural architecture search</strong>.
+          <strong>Current interests:</strong> multimodal learning, reasoning, and reinforcement learning.
+          <strong>Prior work:</strong> LLM-based optimization and neural architecture search.
         </p>
         <p class="bio">
           Feel free to reach out if you are interested in my work or have any ideas to discuss!
@@ -415,11 +442,15 @@
       <h2 class="section-title"><span class="emoji">🔥</span> News</h2>
       <ul class="news-list">
         <li>
+          <span class="news-date">2026.03:</span>
+          <span>Our open-source project <a href="https://github.com/Zcy233035/rl-explainer">RL Explainer</a> gained 129+ GitHub stars within 24 hours of launch!</span>
+        </li>
+        <li>
           <span class="news-date">2025.10:</span>
           <span>We release <a href="https://arxiv.org/abs/2510.03760">EvoEngineer</a>, a framework for automated CUDA kernel code evolution with LLMs.</span>
         </li>
         <li>
-          <span class="news-date">2025.03:</span>
+          <span class="news-date">2025.06:</span>
           <span>Joined the <a href="#">Optima Research Group</a> at CityU as a Research Assistant, working on evolutionary optimization and neural architecture search.</span>
         </li>
         <li>
@@ -438,10 +469,10 @@
         <div class="pub-content">
           <div class="pub-title">EvoEngineer: Mastering Automated CUDA Kernel Code Evolution with Large Language Models</div>
           <div class="pub-authors">
-            Ping Guo, <span class="me">Chenyu Zhu</span>, Siyuan Chen, Fei Liu, Xi Lin, Zhichao Lu, and Qingfu Zhang.
+            Ping Guo, <span class="me">Chenyu Zhu</span>, Siyuan Chen, Fei Liu, Xi Lin, Zhichao Lu, and Qingfu Zhang*.
           </div>
           <div class="pub-desc">
-            A framework that uses LLMs to automate the evolutionary optimization of CUDA kernels through iterative search in code space.
+            arXiv preprint arXiv:2510.03760, 2025.
           </div>
           <div class="pub-links">
             <a href="https://arxiv.org/abs/2510.03760"><i class="fas fa-file-pdf"></i> Paper</a>
@@ -456,20 +487,21 @@
 
       <div class="exp-item">
         <div class="exp-header">
-          <h3>Optima Research Group, City University of Hong Kong</h3>
-          <span class="exp-date">Mar 2025 -- Present</span>
+          <h3>Learning and Optimization for Machine Intelligence (Optima) Research Group</h3>
+          <span class="exp-date">June 2025 &ndash; Present</span>
         </div>
-        <div class="exp-role">Research Assistant, Department of Computer Science</div>
+        <div class="exp-role">Research Assistant, Department of Computer Science, City University of Hong Kong</div>
         <div class="exp-supervisor">
-          Supervisors: <strong>Zhichao Lu</strong> (Assistant Professor) &amp; <strong>Qingfu Zhang</strong> (Chair Professor, IEEE Fellow)
+          Supervisors: <strong>Zhichao LU</strong>, Assistant Professor &amp; <strong>Qingfu ZHANG</strong>, Chair Professor, IEEE Fellow.
         </div>
 
         <div class="exp-project">
           <h4>Project 1: EvoEngineer &mdash; Automated Code Evolution for GPU Kernels</h4>
           <ul>
             <li>Co-authored <em>EvoEngineer</em> (arXiv:2510.03760), a framework that uses LLMs to automate the evolutionary optimization of CUDA kernels through iterative search in code space.</li>
-            <li>Contributed to the conceptual design of the iterative code evolution pipeline, proposing the search-and-refinement workflow that enables LLMs to progressively optimize CUDA kernel performance across generations.</li>
-            <li>Built the experimental pipeline integrating with KernelBench, covering automated compilation, correctness verification, and GPU profiling across a suite of real-world deep learning kernels.</li>
+            <li>Contributed to building the code evolution pipeline architecture, participating in the design of the iterative LLM-based search-and-refinement workflow for progressive CUDA kernel optimization.</li>
+            <li>Built the end-to-end experimental infrastructure integrating KernelBench, covering automated compilation checks, correctness verification against reference PyTorch outputs, and GPU timing, enabling reproducible evaluation across a suite of real-world deep learning kernels.</li>
+            <li>Contributed to manuscript writing and figure preparation.</li>
           </ul>
         </div>
 
@@ -477,10 +509,26 @@
           <h4>Project 2 (Ongoing): Training-Free Surrogate Model for Spiking Neural Architecture Search</h4>
           <ul>
             <li>Developed a multi-level feature extraction framework for SNN architectures, combining zero-cost proxies, code-level component statistics, structural shape-trace features, and a novel SNN-specific firing-rate metric, all extracted without any training.</li>
-            <li>Deployed a tabular foundation model (TabPFN) as the surrogate regressor, outperforming traditional ML baselines on two NLP benchmarks under the same cross-validation protocol.</li>
+            <li>Pioneered a fusion of 21 feature extractions with TabPFN, surpassing all traditional NAS zero-cost proxy methods and classic ML models on performance prediction for Wikitext2 and ListOps.</li>
             <li>Designed an online learning loop where the surrogate continuously improves as the NAS process accumulates labeled architectures, significantly reducing the cost of architecture evaluation.</li>
           </ul>
         </div>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <div class="section">
+      <h2 class="section-title"><span class="emoji">🚀</span> Projects</h2>
+
+      <div class="proj-item">
+        <div class="proj-header">
+          <h3>RL Explainer <span class="tech">| SvelteKit, TypeScript | <a href="https://github.com/Zcy233035/rl-explainer">GitHub</a> (129+ stars)</span></h3>
+          <span class="proj-date">Mar 2026</span>
+        </div>
+        <ul>
+          <li>Open-source project that gained 129+ GitHub stars within 24 hours of launch.</li>
+          <li>Built an interactive web visualization of 11 reinforcement learning algorithms used in LLM post-training alignment, including GRPO, DAPO, GMPO, and GFPO.</li>
+        </ul>
       </div>
     </div>
 
@@ -494,8 +542,10 @@
         </div>
         <div class="edu-info">
           <h3>City University of Hong Kong</h3>
-          <p>B.Sc. in Computer Science, Aug 2023 &ndash; Jun 2027 (Expected)</p>
-          <p>CGPA: 3.80 / 4.30 &nbsp;|&nbsp; Dean's List (2023/24 Sem A, 2024/25 Sem A, 2025/26 Sem A)</p>
+          <p>Bachelor of Computer Science, Aug 2023 &ndash; Jun 2027 (Expected)</p>
+          <p>CGPA: 3.80 / 4.30</p>
+          <p>Core Curriculum: Data Structures (4.0/4.3), Discrete Mathematics (4.3/4.3), Design and Analysis of Algorithms (4.3/4.3), Computer Networks (4.0/4.3), Computer Organization (4.0/4.3), etc.</p>
+          <p>Awards: College of Engineering, Dean's List (2023/24 Sem A; 2024/25 Sem A, TGPA: 4.00; 2025/26 Sem A)</p>
         </div>
       </div>
 
@@ -506,7 +556,8 @@
         <div class="edu-info">
           <h3>University of California, Berkeley</h3>
           <p>Summer Session, Jun 2024 &ndash; Aug 2024</p>
-          <p>GPA: 3.50 / 4.00 &nbsp;|&nbsp; CS 61BL, CS 188 (4.0/4.0)</p>
+          <p>GPA: 3.50 / 4.00</p>
+          <p>CS 188: Introduction to Artificial Intelligence (4.0/4.0); CS 61BL: Data Structures and Programming Methodology</p>
         </div>
       </div>
     </div>
@@ -516,7 +567,7 @@
       <h2 class="section-title"><span class="emoji">🎖</span> Honors &amp; Awards</h2>
       <ul class="award-list">
         <li>
-          <span class="award-date">2023 &ndash; 2025</span>
+          <span class="award-date">2023 &ndash; 2026</span>
           <span>College of Engineering, <strong>Dean's List</strong> (2023/24 Sem A; 2024/25 Sem A, TGPA 4.00; 2025/26 Sem A), <em>City University of Hong Kong</em></span>
         </li>
       </ul>
