@@ -309,6 +309,51 @@
       margin-bottom: 4px;
     }
 
+    /* Demo Preview */
+    .demo-preview {
+      position: relative;
+      margin-top: 14px;
+      border-radius: 8px;
+      overflow: hidden;
+      border: 2px solid var(--border-color);
+      height: 260px;
+      cursor: pointer;
+      transition: height 0.4s ease, border-color 0.3s;
+    }
+    .demo-preview:hover {
+      border-color: var(--primary-color);
+    }
+    .demo-preview.expanded {
+      height: 560px;
+    }
+    .demo-preview iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      pointer-events: none;
+      transition: opacity 0.3s;
+    }
+    .demo-preview.expanded iframe {
+      pointer-events: auto;
+    }
+    .demo-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 10px 16px;
+      background: linear-gradient(transparent, rgba(255,255,255,0.95));
+      z-index: 2;
+      text-align: center;
+      font-size: 13px;
+      color: var(--text-light);
+      transition: opacity 0.3s;
+    }
+    .demo-preview.expanded .demo-overlay {
+      opacity: 0;
+      pointer-events: none;
+    }
+
     /* Education */
     .edu-item {
       display: flex;
@@ -522,13 +567,22 @@
 
       <div class="proj-item">
         <div class="proj-header">
-          <h3>RL Explainer <span class="tech">| SvelteKit, TypeScript | <a href="https://github.com/Zcy233035/rl-explainer">GitHub</a> (129+ stars)</span></h3>
+          <h3>RL Explainer <span class="tech">| SvelteKit, TypeScript |
+            <a href="https://github.com/Zcy233035/rl-explainer"><i class="fab fa-github"></i> GitHub</a>
+            <img src="https://img.shields.io/github/stars/Zcy233035/rl-explainer?style=social" alt="stars" style="vertical-align:middle;margin-left:6px;">
+          </span></h3>
           <span class="proj-date">Mar 2026</span>
         </div>
         <ul>
-          <li>Open-source project that gained 129+ GitHub stars within 24 hours of launch.</li>
+          <li>Open-source project that gained 146+ GitHub stars within days of launch.</li>
           <li>Built an interactive web visualization of 11 reinforcement learning algorithms used in LLM post-training alignment, including GRPO, DAPO, GMPO, and GFPO.</li>
         </ul>
+        <div class="demo-preview" onclick="this.classList.toggle('expanded')">
+          <div class="demo-overlay">
+            <span><i class="fas fa-expand"></i> Click to preview &mdash; or <a href="https://zcy233035.github.io/rl-explainer/" target="_blank" onclick="event.stopPropagation();">open full site <i class="fas fa-external-link-alt"></i></a></span>
+          </div>
+          <iframe src="https://zcy233035.github.io/rl-explainer/" loading="lazy" sandbox="allow-scripts allow-same-origin"></iframe>
+        </div>
       </div>
     </div>
 
@@ -573,21 +627,7 @@
       </ul>
     </div>
 
-    <!-- Technical Skills -->
-    <div class="section">
-      <h2 class="section-title"><span class="emoji">💻</span> Technical Skills</h2>
-      <div class="skills-grid">
-        <div class="skill-group">
-          <strong>Languages:</strong> <span>Python, C/C++, CUDA, Java, SQL</span>
-        </div>
-        <div class="skill-group">
-          <strong>Frameworks:</strong> <span>PyTorch, Hugging Face, scikit-learn</span>
-        </div>
-        <div class="skill-group">
-          <strong>Tools:</strong> <span>Git, Linux, LaTeX</span>
-        </div>
-      </div>
-    </div>
+
 
     <!-- Footer -->
     <div class="footer">
